@@ -1,21 +1,22 @@
 import 'package:brief_project/core/helper/navigator_helper.dart';
-import 'package:brief_project/feature/dashboard/controller/dashboard._controller.dart';
-import 'package:brief_project/feature/dashboard/presentation/widget/dashboard_body.dart';
+import 'package:brief_project/feature/profile/widget/profile_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MainDashBoard extends StatefulWidget {
-  const MainDashBoard({super.key});
+import '../../dashboard/controller/dashboard._controller.dart';
+
+class MainProfil extends StatefulWidget {
+  const MainProfil({super.key});
 
   @override
-  State<MainDashBoard> createState() => _MainDashBoardState();
+  State<MainProfil> createState() => _MainProfilState();
 }
 
-final DashboardBody body = DashboardBody();
-
-class _MainDashBoardState extends State<MainDashBoard> {
+class _MainProfilState extends State<MainProfil> {
+  final body = ProfileBody();
   final navigatorHelper = NavigatorHelper();
   final controller = Get.find<DashboardConttoller>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,7 +27,7 @@ class _MainDashBoardState extends State<MainDashBoard> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Dashboard',
+              label: 'Dashbioard',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite),

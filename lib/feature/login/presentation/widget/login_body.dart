@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../../core/helper/navigator_helper.dart';
 import '../../../../core/material/color_material.dart';
 import '../../../../core/material/material_decoration.dart';
 import '../../../../core/material/resolution_size.dart';
@@ -9,7 +11,7 @@ class LoginBody {
   Widget body(context) {
     // var controller = Get.find<LoginController>();
 
-    // final NavigatorHelper navigatorHelper = NavigatorHelper();
+    final navigatorHelper = NavigatorHelper();
     return SingleChildScrollView(
       child: Container(
         height: MediaQuery.of(context).size.height,
@@ -102,7 +104,8 @@ class LoginBody {
                           height: 55,
                           child: ElevatedButton(
                               style: materialDecoration.buttonStylePrimary,
-                              onPressed: () {},
+                              onPressed: () =>
+                                  Get.toNamed(navigatorHelper.dashboard),
                               child: Text("Masuk")),
                         ),
                       ),
