@@ -1,6 +1,5 @@
 import 'package:brief_project/core/helper/session.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -17,6 +16,10 @@ class LoginController extends GetxController {
   Rx<String> street = ''.obs;
   RxMap<String, String> dataUser =
       {"username": "test1", "password": '123456'}.obs;
+
+  build() {
+    requestLocationPermission();
+  }
 
   onLogin(context) {
     if (username.value.text == dataUser['username'] &&
@@ -41,20 +44,15 @@ class LoginController extends GetxController {
     }
   }
 
-  getLocation() async {
-    Position position = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.high);
-
-    Future<void> requestLocationPermission() async {
-      if (await Permission.location.isGranted) {
-        print("Gps aktif");
+  Future<void> requestLocationPermission() async {
+    if (await Permission.location.isGranted) {
+      print("Gps aktif");
+    } else {
+      var status = await Permission.location.request();
+      if (status.isGranted) {
+        print("2");
       } else {
-        var status = await Permission.location.request();
-        if (status.isGranted) {
-          print("2");
-        } else {
-          print("3");
-        }
+        print("3");
       }
     }
   }

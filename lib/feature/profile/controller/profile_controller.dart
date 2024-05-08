@@ -33,6 +33,7 @@ class ProfileController extends GetxController {
   getDatauser() async {
     final data = await SessionHelper.getUsername();
     username.value = data ?? '';
+    log("message ${data}");
   }
 
   onLogOut() async {

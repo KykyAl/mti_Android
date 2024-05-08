@@ -24,6 +24,7 @@ class _MainProfilState extends State<MainProfil> {
   @override
   void initState() {
     controller.getLocation();
+    controller.getDatauser();
     super.initState();
   }
 
