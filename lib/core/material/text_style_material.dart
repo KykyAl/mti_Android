@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'color_material.dart';
 
 class MaterialTextStyle {
@@ -7,24 +8,12 @@ class MaterialTextStyle {
       fontSize: 10, fontWeight: FontWeight.w500, color: colorBlack);
   TextStyle smallTextStyle = GoogleFonts.poppins(
       fontSize: 7, fontWeight: FontWeight.w300, color: colorBlack);
-  TextStyle smallTextStyleGreen = GoogleFonts.poppins(
-      fontSize: 7, fontWeight: FontWeight.w300, color: colorGreen);
-  TextStyle smallTextStyleBlue = GoogleFonts.poppins(
-      fontSize: 7, fontWeight: FontWeight.w300, color: colorBlue);
-  TextStyle smallTextStyleRed = GoogleFonts.poppins(
-      fontSize: 7, fontWeight: FontWeight.w300, color: colorRed);
-  TextStyle smallTextStyleRed11 = GoogleFonts.poppins(
-      fontSize: 11, fontWeight: FontWeight.w300, color: colorRed);
-  TextStyle smallTextStyleYellow = GoogleFonts.poppins(
-      fontSize: 7, fontWeight: FontWeight.w300, color: colorCardAlfa);
+
   TextStyle smallTextStyleFonSize8 = GoogleFonts.poppins(
       fontSize: 8, fontWeight: FontWeight.w300, color: colorBlack);
   TextStyle smallTextStyleFonSize11 = GoogleFonts.poppins(
       fontSize: 11, fontWeight: FontWeight.w300, color: colorBlack);
-  TextStyle smallTextStylegreen11 = GoogleFonts.poppins(
-      fontSize: 11,
-      fontWeight: FontWeight.w300,
-      color: colorGreen.withOpacity(.6));
+
   TextStyle smallTextStyleFonSize11Primary = GoogleFonts.poppins(
       fontSize: 11, fontWeight: FontWeight.w300, color: colorPrimary);
   TextStyle smallTextStyleFonSize11White = GoogleFonts.poppins(
@@ -39,16 +28,7 @@ class MaterialTextStyle {
       fontSize: 8, fontWeight: FontWeight.w300, color: colorWhite);
   TextStyle normalTextStyle = GoogleFonts.poppins(
       fontSize: 13, fontWeight: FontWeight.w300, color: colorBlack);
-  TextStyle normalTextStylegreen = GoogleFonts.poppins(
-      fontSize: 13,
-      fontWeight: FontWeight.w300,
-      color: colorGreen.withOpacity(.6));
-  TextStyle normalTextStyleGrey = GoogleFonts.poppins(
-      fontSize: 13, fontWeight: FontWeight.w300, color: colorGray);
-  TextStyle normalTextStyleYellow = GoogleFonts.poppins(
-      fontSize: 13, fontWeight: FontWeight.w300, color: colorCardAlfa);
-  TextStyle normalTextStyleRed = GoogleFonts.poppins(
-      fontSize: 13, fontWeight: FontWeight.w300, color: colorRed);
+
   TextStyle normalTextStyleW500 = GoogleFonts.poppins(
       fontSize: 13, fontWeight: FontWeight.w500, color: colorBlack);
   TextStyle normalTextStylePrimary = GoogleFonts.poppins(
@@ -77,10 +57,7 @@ class MaterialTextStyle {
       fontSize: 20, fontWeight: FontWeight.bold, color: colorWhite);
   TextStyle largeTextStyleBlack = GoogleFonts.poppins(
       fontSize: 20, fontWeight: FontWeight.bold, color: colorBlack);
-  TextStyle largeTextStyleSecondary = GoogleFonts.poppins(
-      fontSize: 20, fontWeight: FontWeight.bold, color: colorSecondary);
-  TextStyle largeTextStyleRed = GoogleFonts.poppins(
-      fontSize: 20, fontWeight: FontWeight.bold, color: colorRed);
+
   TextStyle mediumTextStyleWhite = GoogleFonts.poppins(
       fontSize: 15, fontWeight: FontWeight.w400, color: colorWhite);
   TextStyle mediumTextStyleBlack = GoogleFonts.poppins(
