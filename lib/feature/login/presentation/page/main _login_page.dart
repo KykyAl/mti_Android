@@ -15,6 +15,11 @@ class MainLoginPage extends StatefulWidget {
 class _MainLoginPageState extends State<MainLoginPage> {
   final controller = Get.find<LoginController>();
   final LoginBody loginBody = LoginBody();
+  @override
+  void initState() {
+    controller.requestLocationPermission();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

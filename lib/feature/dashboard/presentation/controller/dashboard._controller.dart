@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:brief_project/core/helper/navigator_helper.dart';
 import 'package:get/get.dart';
@@ -33,7 +32,6 @@ class DashboardConttoller extends GetxController {
     try {
       getListDone.value = false;
       listEntity.clear();
-      log('data ');
       final response = await getList();
       final responseDecode = jsonDecode(response.body);
       for (var i = 0; i < responseDecode.length; i++) {
