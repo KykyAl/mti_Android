@@ -1,9 +1,12 @@
 import 'package:brief_project/core/helper/navigator_helper.dart';
+import 'package:brief_project/core/material/color_material.dart';
+import 'package:brief_project/feature/dashboard/presentation/controller/dashboard._controller.dart';
+import 'package:brief_project/feature/profile/controller/profile_controller.dart';
 import 'package:brief_project/feature/profile/widget/profile_body.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../dashboard/controller/dashboard._controller.dart';
+import '../../../core/material/text_style_material.dart';
 
 class MainProfil extends StatefulWidget {
   const MainProfil({super.key});
@@ -15,11 +18,26 @@ class MainProfil extends StatefulWidget {
 class _MainProfilState extends State<MainProfil> {
   final body = ProfileBody();
   final navigatorHelper = NavigatorHelper();
-  final controller = Get.find<DashboardConttoller>();
+  final controller = Get.find<ProfileController>();
+  final dashboardcontroller = Get.find<DashboardConttoller>();
+
+  @override
+  void initState() {
+    controller.getLocation();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Profile',
+          style: materialTextStyle.largeTextStyleWhite,
+        ),
+        backgroundColor: colorBckround,
+      ),
+      key: controller.scaffoldState.value,
       body: body.body(context),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
@@ -34,9 +52,9 @@ class _MainProfilState extends State<MainProfil> {
               label: 'Profile',
             ),
           ],
-          currentIndex: controller.currentIndex.value,
+          currentIndex: dashboardcontroller.currentIndex.value,
           selectedItemColor: Colors.brown,
-          onTap: (index) => controller.onItemTapped(index),
+          onTap: (index) => dashboardcontroller.onItemTapped(index),
         ),
       ),
     );

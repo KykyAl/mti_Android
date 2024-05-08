@@ -1,4 +1,4 @@
-import 'package:brief_project/feature/dashboard/controller/dashboard._controller.dart';
+import 'package:brief_project/feature/dashboard/presentation/controller/dashboard._controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
