@@ -15,10 +15,10 @@ class LoginController extends GetxController {
   Rx<double> long = 0.0.obs;
   Rx<String> street = ''.obs;
   RxMap<String, String> dataUser = {
-    "test1": '123456', // password: 123456
-    "user3": 'securepass123', // password: securepass123
-    "admin1": 'myadminpass', // password: myadminpass
-    "guest1": 'welcomeguest', // password: welcomeguest
+    "test1": '123456',
+    "user3": 'securepass123',
+    "admin1": 'myadminpass',
+    "guest1": 'welcomeguest',
   }.obs;
 
   build() {
@@ -26,25 +26,31 @@ class LoginController extends GetxController {
   }
 
   onLogin(context) {
-    if (username.value.text == dataUser['username'] &&
-        password.value.text == dataUser['password']) {
-      SessionHelper.setUsername(dataUser['username']);
+    String inputUsername = username.value.text;
+    String inputPassword = password.value.text;
+
+    if (dataUser.containsKey(inputUsername) &&
+        dataUser[inputUsername] == inputPassword) {
+      SessionHelper.setUsername(inputUsername);
       Get.offAllNamed(navigatorHelper.dashboard);
     } else {
       showDialog(
-          context: context,
-          builder: (context) {
-            return Dialog(
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
-              child: Container(
-                height: 150,
-                padding: EdgeInsets.all(20),
-                child: Center(
-                    child: Text('Username dan Password tidak diketahui')),
+        context: context,
+        builder: (context) {
+          return Dialog(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Container(
+              height: 150,
+              padding: EdgeInsets.all(20),
+              child: Center(
+                child: Text('Username dan Password tidak diketahui'),
               ),
-            );
-          });
+            ),
+          );
+        },
+      );
     }
   }
 

@@ -14,6 +14,7 @@ class DashboardConttoller extends GetxController {
   RxList<ResponseListEntity> listEntity = <ResponseListEntity>[].obs;
   RxBool getListDone = false.obs;
   build() {
+    currentIndex.value = 0;
     showList();
   }
 

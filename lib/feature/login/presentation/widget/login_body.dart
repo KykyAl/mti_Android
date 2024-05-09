@@ -1,3 +1,4 @@
+import 'package:brief_project/core/material/material_decoration.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -44,6 +45,7 @@ class LoginBody extends StatelessWidget {
           ),
           SizedBox(height: 20.0),
           ElevatedButton(
+            style: materialDecoration.buttonStylePrimary,
             onPressed: () => controller.onLogin(context),
             child: Text('Login'),
           ),
