@@ -14,8 +14,12 @@ class LoginController extends GetxController {
   Rx<double> lat = 0.0.obs;
   Rx<double> long = 0.0.obs;
   Rx<String> street = ''.obs;
-  RxMap<String, String> dataUser =
-      {"username": "test1", "password": '123456'}.obs;
+  RxMap<String, String> dataUser = {
+    "test1": '123456', // password: 123456
+    "user3": 'securepass123', // password: securepass123
+    "admin1": 'myadminpass', // password: myadminpass
+    "guest1": 'welcomeguest', // password: welcomeguest
+  }.obs;
 
   build() {
     requestLocationPermission();
