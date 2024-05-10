@@ -11,7 +11,7 @@ username dan password
     "admin1": 'myadminpass',
     "guest1": 'welcomeguest',
 
-berikut di list folder dengan nama apk-release.apk
+berikut untuk mendwoload apknya bisa di list folder dengan nama app-release.apk
 
 
 
