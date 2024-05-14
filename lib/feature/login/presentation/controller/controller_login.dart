@@ -1,14 +1,20 @@
+import 'dart:convert';
+import 'dart:developer';
+
 import 'package:brief_project/core/helper/session.dart';
+import 'package:brief_project/feature/login/domain/useCase/remote_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart' as http;
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../core/helper/navigator_helper.dart';
+import '../../data/model/response_login_model.dart';
 
 class LoginController extends GetxController {
   Rx<int> distence = 0.obs;
   final navigatorHelper = NavigatorHelper();
-
+  final RemoteUsecase remoteUseCase = RemoteUsecase();
   Rx<TextEditingController> username = TextEditingController(text: '').obs;
   Rx<TextEditingController> password = TextEditingController(text: '').obs;
   Rx<double> lat = 0.0.obs;
@@ -19,6 +25,7 @@ class LoginController extends GetxController {
 
   build() {
     requestLocationPermission();
+    inLogin();
   }
 
   onLogin(context) {
@@ -55,5 +62,23 @@ class LoginController extends GetxController {
         print("3");
       }
     }
+  }
+
+  void inLogin() async {
+    final body = ResponseLogin(username: 'test', password: '123');
+    final response = await login(body: body);
+    final responseDecode = jsonDecode(response.body);
+    log("message${body}");
+    log("message${response.body}");
+    log("message${responseDecode}");
+    if (responseDecode['message'] == 'Login berhasil') {
+      Get.offAllNamed(navigatorHelper.dashboard);
+    } else {
+      print('tidak berhasil');
+    }
+  }
+
+  Future<http.Response> login({ResponseLogin? body}) {
+    return remoteUseCase.login(body: body);
   }
 }

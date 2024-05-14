@@ -17,7 +17,7 @@ class _MainLoginPageState extends State<MainLoginPage> {
   final LoginBody loginBody = LoginBody();
   @override
   void initState() {
-    controller.requestLocationPermission();
+    controller.build();
     super.initState();
   }
 
